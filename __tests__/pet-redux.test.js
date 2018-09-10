@@ -5,3 +5,10 @@ describe('constructor', () => {
     expect(new Pet()).toBeInstanceOf(Object);
   });
 });
+
+describe('name', () => {
+  it('passes the name from the function into the Pet object', () => {
+    const pet = new Pet('GhostfaceKilla')
+    expect(pet.name).toEqual('GhostfaceKilla')
+  })
+})
