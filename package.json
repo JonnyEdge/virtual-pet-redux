@@ -1,0 +1,14 @@
+{
+  "name": "virtual-pet-redux",
+  "version": "1.0.0",
+  "description": "Redoing Week 4 Virtual Pet track without a walkthrough, and with Week 5 learnings",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jonny Edge",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
