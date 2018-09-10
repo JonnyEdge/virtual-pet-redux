@@ -8,7 +8,15 @@ describe('constructor', () => {
 
 describe('name', () => {
   it('passes the name from the function into the Pet object', () => {
-    const pet = new Pet('GhostfaceKilla')
-    expect(pet.name).toEqual('GhostfaceKilla')
-  })
-})
+    const pet = new Pet('GhostfaceKilla');
+    expect(pet.name).toEqual('GhostfaceKilla');
+  });
+});
+
+describe('age', () => {
+  it ('adds 1 to the default age of 0 every time it is called', () => {
+    const pet = new Pet('OlDirtyBastard');
+    pet.growUp();
+    expect(pet.age).toEqual(1);
+  });
+});
