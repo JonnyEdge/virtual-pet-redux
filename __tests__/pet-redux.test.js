@@ -1,4 +1,4 @@
-const Pet = require('../src/pet-redux');
+const Pet = require('../src/pet-redux')
 
 describe('constructor', () => {
   it('creates a Pet constructor', () => {
@@ -45,8 +45,7 @@ describe('walk', () => {
   });
   it('adds 4 to the fitness level, to a maximum of 10 - starting fitness 4', () => {
     const pet = new Pet('GZA');
-    pet.growUp();
-    pet.growUp();
+    pet.fitness = 4;
     pet.walk();
     expect(pet.fitness).toEqual(8);
   });
@@ -64,12 +63,11 @@ describe('feed', () => {
     pet.feed();
     expect(pet.hunger).toEqual(2);
   });
-  it('subtracts 3 from the hunger level, to a minimum of 0 - starting hunger 10', () => {
-    const pet = new Pet('GZA');
-    pet.growUp();
-    pet.growUp();
+  it('subtracts 3 from the hunger level, to a minimum of 0 - starting hunger 9', () => {
+    const pet = new Pet('BigPun');
+    pet.hunger = 9;
     pet.feed();
-    expect(pet.hunger).toEqual(7);
+    expect(pet.hunger).toEqual(6);
   });
 });
 
@@ -102,5 +100,45 @@ describe('isAlive', () => {
   it('returns true if pet fitness is more than 0, hunger is less than 10 and age is less than 30', () => {
     const pet = new Pet('Twista');
     expect(pet.isAlive).toEqual(true);
+  });
+});
+
+describe('isAlive warning', () => {
+  it('returns a message to say your pet has died if isAlive is determined to be false', () => {
+    const pet = new Pet('Xzibit');
+    pet.fitness = -6;
+    pet.hunger = 16;
+    pet.age = 36;
+    expect(pet.checkUp()).toEqual('Your pet is dead');
+  });
+});
+
+describe('growUp isAlive warning', () => {
+  it('returns a message to say your pet has died and does not run growUp', () => {
+    const pet = new Pet('Busta');
+    pet.fitness = -6;
+    pet.hunger = 16;
+    pet.age = 36;
+    expect(pet.growUp).toThrow('Your pet is dead');
+  });
+});
+
+describe('walk isAlive warning', () => {
+  it('returns a message to say your pet has died and does not run growUp', () => {
+    const pet = new Pet('Ludacris');
+    pet.fitness = -6;
+    pet.hunger = 16;
+    pet.age = 36;
+    expect(pet.walk).toThrow('Your pet is dead');
+  });
+});
+
+describe('feed isAlive warning', () => {
+  it('returns a message to say your pet has died and does not run growUp', () => {
+    const pet = new Pet('FatJoe');
+    pet.fitness = -6;
+    pet.hunger = 16;
+    pet.age = 36;
+    expect(pet.growUp).toThrow('Your pet is dead');
   });
 });
