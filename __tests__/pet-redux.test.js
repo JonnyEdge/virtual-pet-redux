@@ -32,22 +32,43 @@ describe('growUp', () => {
 });
 
 describe('walk', () => {
-  it('adds 4 to the fitness level, to a level cap of 10 - starting fitness 10', () => {
+  it('adds 4 to the fitness level, to a maximum of 10 - starting fitness 10', () => {
     const pet = new Pet('Raekwon');
     pet.walk();
     expect(pet.fitness).toEqual(10);
   });
-  it('adds 4 to the fitness level, to a level cap of 10 - starting fitness 7', () => {
+  it('adds 4 to the fitness level, to a maximum of 10 - starting fitness 7', () => {
     const pet = new Pet('GZA');
     pet.growUp();
     pet.walk();
     expect(pet.fitness).toEqual(10);
   });
-  it('adds 4 to the fitness level, to a level cap of 10 - starting fitness 4', () => {
+  it('adds 4 to the fitness level, to a maximum of 10 - starting fitness 4', () => {
     const pet = new Pet('GZA');
     pet.growUp();
     pet.growUp();
     pet.walk();
     expect(pet.fitness).toEqual(8);
+  });
+});
+
+describe('feed', () => {
+  it('subtracts 3 from the hunger level, to a minimum of 0 - starting hunger 0', () => {
+    const pet = new Pet('Raekwon');
+    pet.feed();
+    expect(pet.hunger).toEqual(0);
+  });
+  it('subtracts 3 from the hunger level, to a minimum of 0 - starting hunger 5', () => {
+    const pet = new Pet('GZA');
+    pet.growUp();
+    pet.feed();
+    expect(pet.hunger).toEqual(2);
+  });
+  it('subtracts 3 from the hunger level, to a minimum of 0 - starting hunger 10', () => {
+    const pet = new Pet('GZA');
+    pet.growUp();
+    pet.growUp();
+    pet.feed();
+    expect(pet.hunger).toEqual(7);
   });
 });
