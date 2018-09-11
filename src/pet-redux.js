@@ -8,6 +8,12 @@ function Pet(name) {
   this.fitness = 10;
 }
 
+Pet.prototype = {
+  get isAlive() {
+    return ((this.fitness > 0) && (this.hunger < 10) && (this.age < 30));
+  },
+};
+
 Pet.prototype.growUp = function growUp() {
   this.age += 1;
   this.hunger += 5;
