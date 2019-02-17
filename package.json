@@ -16,5 +16,8 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.9.1",
     "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "jest-cli": "^23.6.0"
   }
 }

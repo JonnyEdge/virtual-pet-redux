@@ -1,1 +1,3 @@
-Redoing Week 4 Virtual Pet track without a walkthrough, bearing Week 5 learnings in mind
+# Virtual Pet Redux
+
+Redoing the fourth week Virtual Pet track without the MCR Codes walkthrough, and bearing learnings from the fifth week in mind.
